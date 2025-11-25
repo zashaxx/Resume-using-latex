@@ -1,0 +1,98 @@
+\documentclass[]{resume-openfont}
+
+\pagestyle{fancy}
+\resetHeaderAndFooter
+
+%--------------------------------------------------------------
+% Custom Commands
+%--------------------------------------------------------------
+
+% Job Position
+\newcommand{\resumeHeading}[4]{\runsubsection{\uppercase{#1}}\descript{ | #2}\hfill\location{#3 | #4}\fakeNewLine}
+
+% REVISED Education Heading: Aligns Date with Location and bolds them
+\newcommand{\educationHeading}[4]{
+    \runsubsection{#1} \hfill \textbf{#3}\\
+    \descript{#2} \hfill \textbf{#4}
+}
+
+% Project Headings
+\newcommand{\projectHeading}[3]{\Project{#1}{#2}
+\descript{#3}\\}
+
+\newcommand{\projectHeadingWithDate}[4]{\Project{#1}{#2}
+\descript{#3 | #4}\\}
+
+% Coursework
+\newcommand{\courseWork}[1]{\textbf{Relevant Coursework:} #1}
+
+% Teacher Assistant
+\newcommand{\teacherAssistant}[1]{\textbf{Teacher Assistant (TA):} #1}
+
+%--------------------------------------------------------------
+\begin{document}
+
+%--------------------------------------------------------------
+%     Profile
+%--------------------------------------------------------------
+\newcommand{\yourName}{Aayush Koirala}
+\newcommand{\yourWebsite}{Portfolio} 
+\newcommand{\yourWebsiteLink}{aayushkoirala.netlify.app}
+\newcommand{\yourEmail}{aayushkoirala8848@gmail.com} 
+\newcommand{\githubUserName}{zashaxx}
+\newcommand{\linkedInUserName}{aayushkoirala8848}
+
+\begin{center}
+    \Huge \scshape \latoRegular{\yourName} \\ \vspace{1pt}
+    \small \href{mailto:\yourEmail}{\underline{\yourEmail}}  $|$  
+    \href{https://www.linkedin.com/in/\linkedInUserName}{\underline{LinkedIn/\linkedInUserName}} $|$
+    \href{https://github.com/\githubUserName}{\underline{GitHub/\githubUserName}} 
+    $|$ \href{https://aayushkoirala.netlify.app}{\underline{\yourWebsite}}
+\end{center}
+
+%--------------------------------------------------------------
+%     Education
+%--------------------------------------------------------------
+\section{\textbf{Education}}
+\vspace{2pt} \hrule \vspace{10pt} % Adds the underline and spacing
+
+\educationHeading{Nepal Engineering College}
+  {\textit{Bachelor of Engineering}}
+  {Changunarayan, Bhaktapur}
+  {Expected Feb 2026}
+  \\
+  \textbf{Major in Computer Science}
+  \\ \vspace{5pt} % Space between Major and Coursework
+  
+\courseWork{Computer Networks, AWT (Advanced Web Technology), AI (Artificial Intelligence), Operating Systems, Database Management System}
+\sectionsep
+
+%--------------------------------------------------------------
+%     Projects
+%--------------------------------------------------------------
+\section{\textbf{University Projects}}
+\vspace{2pt} \hrule \vspace{10pt} % Adds the underline and spacing
+
+\projectHeading{Good Notes \textit{(2023)}}{https://github.com/zashaxx/GoodNotesFinal}{HTML, CSS, Node JS, EJS, MongoDB}
+An educational web portal designed to facilitate the downloading of university lecture notes and study materials. The system utilizes a JavaScript-based backend and MongoDB to efficiently manage data storage, earning formal approval from the faculty for its implementation.\\
+\sectionsep
+  
+\projectHeading{Merch Nepal \textit{(2024)}}{https://github.com/zashaxx/Merch-Nepal}{JavaScript, HTML, Tailwind CSS, React, ExpressJS, MongoDB}
+A fully functional e-commerce platform engineered to facilitate seamless digital transactions and customer interaction. The application integrates the MERN stack and Stripe to power secure payments, real-time chat, and dynamic review filtering, earning faculty validation for its robust functionality.\\
+\sectionsep
+
+%--------------------------------------------------------------
+%     Skills
+%--------------------------------------------------------------
+\section{\textbf{Skills}}
+\vspace{2pt} \hrule \vspace{10pt} % Adds the underline and spacing
+
+\begin{skillList}
+    \singleItem{Languages:}{Java, C++, Python, C\#, PHP, Prolog, Bash, C, SQL }{(Basic)}
+    \\
+    \singleItem{Web Development:}{React, JavaScript, NodeJS, HTML \& CSS}
+    \\
+    \singleItem{Technology:}{Git, GitHub, MongoDB}
+\end{skillList}
+
+\end{document}
