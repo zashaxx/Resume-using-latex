@@ -3,6 +3,9 @@
 \pagestyle{fancy}
 \resetHeaderAndFooter
 
+% [NEW] Needed for justifying text
+\usepackage{ragged2e} 
+
 %--------------------------------------------------------------
 % Custom Commands
 %--------------------------------------------------------------
@@ -10,15 +13,16 @@
 % Job Position
 \newcommand{\resumeHeading}[4]{\runsubsection{\uppercase{#1}}\descript{ | #2}\hfill\location{#3 | #4}\fakeNewLine}
 
-% REVISED Education Heading: Aligns Date with Location and bolds them
+% REVISED Education Heading
 \newcommand{\educationHeading}[4]{
     \runsubsection{#1} \hfill \textbf{#3}\\
     \descript{#2} \hfill \textbf{#4}
 }
 
-% Project Headings
+% REVISED Project Heading
+% CHANGED: Changed \vspace{4pt} to \vspace{-3pt} to reduce gap significantly
 \newcommand{\projectHeading}[3]{\Project{#1}{#2}
-\descript{#3}\\}
+\descript{#3}\\ \vspace{-3pt}}
 
 \newcommand{\projectHeadingWithDate}[4]{\Project{#1}{#2}
 \descript{#3 | #4}\\}
@@ -54,7 +58,7 @@
 %     Education
 %--------------------------------------------------------------
 \section{\textbf{Education}}
-\vspace{2pt} \hrule \vspace{10pt} % Adds the underline and spacing
+\vspace{2pt} \hrule \vspace{10pt}
 
 \educationHeading{Nepal Engineering College}
   {\textit{Bachelor of Engineering}}
@@ -62,7 +66,7 @@
   {Expected Feb 2026}
   \\
   \textbf{Major in Computer Science}
-  \\ \vspace{5pt} % Space between Major and Coursework
+  \\ \vspace{5pt}
   
 \courseWork{Computer Networks, AWT (Advanced Web Technology), AI (Artificial Intelligence), Operating Systems, Database Management System}
 \sectionsep
@@ -71,21 +75,25 @@
 %     Projects
 %--------------------------------------------------------------
 \section{\textbf{University Projects}}
-\vspace{2pt} \hrule \vspace{10pt} % Adds the underline and spacing
+\vspace{2pt} \hrule \vspace{10pt}
 
 \projectHeading{Good Notes \textit{(2023)}}{https://github.com/zashaxx/GoodNotesFinal}{HTML, CSS, Node JS, EJS, MongoDB}
-An educational web portal designed to facilitate the downloading of university lecture notes and study materials. The system utilizes a JavaScript-based backend and MongoDB to efficiently manage data storage, earning formal approval from the faculty for its implementation.\\
+\begin{justify} 
+An educational web portal designed to facilitate the downloading of university lecture notes and study materials. The system utilizes a JavaScript-based backend and MongoDB to efficiently manage data storage, earning formal approval from the faculty for its implementation.
+\end{justify}
 \sectionsep
   
 \projectHeading{Merch Nepal \textit{(2024)}}{https://github.com/zashaxx/Merch-Nepal}{JavaScript, HTML, Tailwind CSS, React, ExpressJS, MongoDB}
-A fully functional e-commerce platform engineered to facilitate seamless digital transactions and customer interaction. The application integrates the MERN stack and Stripe to power secure payments, real-time chat, and dynamic review filtering, earning faculty validation for its robust functionality.\\
+\begin{justify} 
+A fully functional e-commerce platform engineered to facilitate seamless digital transactions and customer interaction. The application integrates the MERN stack and Stripe to power secure payments, real-time chat, and dynamic review filtering, earning faculty validation for its robust functionality.
+\end{justify}
 \sectionsep
 
 %--------------------------------------------------------------
 %     Skills
 %--------------------------------------------------------------
 \section{\textbf{Skills}}
-\vspace{2pt} \hrule \vspace{10pt} % Adds the underline and spacing
+\vspace{2pt} \hrule \vspace{10pt}
 
 \begin{skillList}
     \singleItem{Languages:}{Java, C++, Python, C\#, PHP, Prolog, Bash, C, SQL }{(Basic)}
