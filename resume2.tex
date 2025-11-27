@@ -1,0 +1,237 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=1.75 cm, % Increased margins for better framing
+    bottom=1.75 cm,
+    left=1.75 cm,
+    right=1.75 cm,
+    footskip=1.0 cm,
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Aayush Koirala's CV},
+    pdfauthor={Aayush Koirala},
+    colorlinks=true,
+    urlcolor=primaryColor,
+    linkcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+\usepackage{ragged2e} % For text justification
+
+% -----------------------------------------------------------------------
+%                       VISUAL STYLING
+% -----------------------------------------------------------------------
+
+% 1. COLOR set to BLACK
+\definecolor{primaryColor}{RGB}{0, 0, 0} 
+
+% 2. FONT (Lato)
+\usepackage[default]{lato}
+\usepackage[T1]{fontenc}
+
+% Ensure PDF parsability
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[utf8]{inputenc}
+\fi
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\pagenumbering{gobble} % no page numbering
+
+% 3. SECTION TITLES
+\titleformat{\section}
+    {\needspace{4\baselineskip}\Large\bfseries\color{primaryColor}\uppercase}
+    {}{0pt}
+    {}[\vspace{1pt}{\color{primaryColor}\titlerule[1pt]}]
+
+% Increased top spacing (0.5cm) for better section separation
+\titlespacing{\section}{-1pt}{0.5 cm}{0.25 cm}
+
+% Custom bullet points
+\renewcommand\labelitemi{$\vcenter{\hbox{\small\color{primaryColor}$\bullet$}}$} 
+
+% Environments
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0.10 cm, % Increased item separation for readability
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{0 cm + 0.00001 cm}{0 cm + 0.00001 cm}
+    \justify % Forces justification
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+% Link Helper
+\let\hrefWithoutArrow\href
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{\color{gray}\ $|$\ }
+
+    % -----------------------------------------------------------------------
+    %                                HEADER
+    % -----------------------------------------------------------------------
+    \begin{header}
+        % Name
+        \fontsize{30 pt}{30 pt}\selectfont\bfseries\color{primaryColor} Aayush Koirala
+
+        \vspace{5 pt}
+
+        \normalsize
+        \mbox{\hrefWithoutArrow{mailto:aayushkoirala8848@gmail.com}{aayushkoirala8848@gmail.com}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/aayushkoirala8848}{linkedin.com/in/aayushkoirala8848}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://github.com/zashaxx}{github.com/zashaxx}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://aayushkoirala.netlify.app}{Portfolio}}%
+    \end{header}
+
+    \vspace{0.5 cm} % Slightly more space after header
+
+    % -----------------------------------------------------------------------
+    %                                PROFILE
+    % -----------------------------------------------------------------------
+    \section{Profile}
+    \begin{onecolentry}
+        Final-year Computer Engineering student with a strong focus on \textbf{Frontend Development} and \textbf{React.js}. Proficient in building responsive, component-based user interfaces and integrating RESTful APIs. Passionate about modern JavaScript (ES6+) and clean code practices. Seeking an internship to apply frontend skills in creating seamless, user-centric web applications.
+    \end{onecolentry}
+    
+    % -----------------------------------------------------------------------
+    %                                SKILLS
+    % -----------------------------------------------------------------------
+    \section{Skills}
+
+        \begin{onecolentry}
+            \begin{highlights}
+                \item \textbf{Languages:} JavaScript, HTML, CSS, C++, Java, C, C\#, SQL
+                \item \textbf{Frameworks \& Libraries:} React.js, Node.js, Express.js, Socket.io
+                \item \textbf{Tools \& Platforms:} Git, GitHub, MongoDB, Postman, Linux
+            \end{highlights}
+        \end{onecolentry}
+
+    % -----------------------------------------------------------------------
+    %                                EDUCATION
+    % -----------------------------------------------------------------------
+    \section{Education}
+        
+        \begin{twocolentry}{
+            Changunarayan, Bhaktapur \\
+            Expected Feb, 2026
+        }
+            \textbf{Nepal Engineering College} \\
+            \textit{Affiliated to Pokhara University}
+        \end{twocolentry}
+        
+        \vspace{0.20 cm} % Increased spacing
+        \begin{onecolentry}
+             Bachelor of Engineering \\
+             Major in Computer Science
+        \end{onecolentry}
+
+        \vspace{0.20 cm} % Increased spacing
+        \begin{onecolentry}
+            \textbf{Relevant Coursework:} Computer Networks, AWT (Advanced Web Technology), AI (Artificial Intelligence), Operating Systems, Database Management
+        \end{onecolentry}
+
+    % -----------------------------------------------------------------------
+    %                                PROJECTS
+    % -----------------------------------------------------------------------
+    \section{Projects}
+
+        % Project 1
+        \begin{twocolentry}{
+            \href{https://github.com/zashaxx/GoodNotesFinal}{\faGithub} \ \href{https://github.com/zashaxx/GoodNotesFinal}{\faExternalLink*}
+        }
+            \textbf{\large Good Notes (Academic Portal)}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Developed an educational resource portal using HTML, CSS, and JavaScript, enabling efficient distribution of lecture notes.
+                \item Implemented a NoSQL database (MongoDB) to structure document metadata, reducing data retrieval time.
+                \item Built robust RESTful APIs using Node.js to handle user requests, file uploads, and static content serving.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.4 cm} % Clear separation between projects
+
+        % Project 2
+        \begin{twocolentry}{
+            \href{https://github.com/zashaxx/Merch-Nepal}{\faGithub} \ \href{https://github.com/zashaxx/Merch-Nepal}{\faExternalLink*}
+        }
+            \textbf{\large Merch Nepal}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Engineered a full-stack e-commerce application utilizing the MERN stack, with a specific focus on React frontend architecture.
+                \item Integrated Stripe payment gateway to facilitate secure, PCI-compliant financial transactions.
+                \item Implemented bidirectional real-time communication using Socket.io for instant customer support chat.
+                \item Developed dynamic review filtering and interactive rating systems using React hooks and complex state management.
+            \end{highlights}
+        \end{onecolentry}
+
+\end{document}
